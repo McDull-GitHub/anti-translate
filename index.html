@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+    <textarea id="in" rows="10" cols="100" autofocus style="resize: none;" onchange=get()></textarea>
+    <textarea id="out" rows="10" cols="100" autofocus style="resize: none;" readonly></textarea>
+</body>
+
+<script>
+    function get() {
+        out_text = ''
+        for (i = 0; i < document.querySelector("#in").value.length; i++) {
+            out_text += document.querySelector("#in").value[i] += '\uFEFF'
+        }
+        navigator.clipboard.writeText(out_text)
+        document.querySelector("#out").value = out_text
+    }
+</script>
+
+</html>
